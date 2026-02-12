@@ -1,26 +1,61 @@
+/* Fonts modernes - Montserrat & Inter (loaded from layout) */
+
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --font-heading: "Montserrat", system-ui, -apple-system, sans-serif;
+    --font-body: "Inter", system-ui, -apple-system, sans-serif;
+    --color-blue: #252b50;
+    --color-lightblue: #4053a1;
+    --color-skyblue: #00fcff;
+    --color-gray: #e5e2d3;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+    scroll-behavior: smooth;
+    font-family: var(--font-body);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: white;
+    font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+}
+
+/* Utility spacing used by pages */
+.sec-padd {
+    padding: 4rem 0;
+}
+
+@media (min-width: 1024px) {
+    .sec-padd {
+        padding: 6rem 0;
+    }
+}
+
+/* Improve container defaults for a professional layout */
+.container {
+    max-width: 1120px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Mobile logo sizing */
+@media (max-width: 768px) {
+    .site-mobile-logo {
+        width: 200px !important;
+    }
 }
