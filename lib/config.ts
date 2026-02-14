@@ -14,7 +14,7 @@ export const NAVIGATION_ITEMS = [
     { label: 'How It Works', href: '/how-it-works' },
     { label: 'About Us', href: '/about-us' },
     { label: 'Help', href: '/help' },
-    { label: 'Contact', href: '/contact-us' },
+    { label: 'Contact', href: '/contact' },
 ];
 
 export const SECTION_SPACING = {

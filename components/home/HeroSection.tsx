@@ -1,5 +1,6 @@
 import { IMAGE_BASE } from "@/lib/constants";
 import Image from "next/image";
+import GetStartedCTA from './GetStartedCTA';
 
 export function HeroSection() {
     return (
@@ -13,8 +14,8 @@ export function HeroSection() {
                     priority
                     className="object-cover object-center"
                 />
-                {/* Subtle overlay for better text contrast */}
-                <div className="absolute inset-0 bg-black/5"></div>
+                {/* Dark overlay - darker on left for text contrast */}
+                <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-black/30 via-black/20 to-black/7.5"></div>
             </div>
 
             {/* Content */}
@@ -34,28 +35,13 @@ export function HeroSection() {
                         </h1>
 
                         {/* Description - Hidden on mobile */}
-                        <p className="hidden md:block text-lg md:text-xl font-medium max-w-xl leading-relaxed font-body text-white/90">
+                        <p className="hidden md:block text-lg md:text-xl font-medium max-w-lg leading-relaxed font-body text-white/90">
                             Social Shipping connects senders who want to save on shipping with travelers happy to earn by carrying verified parcels along their route.
                         </p>
 
                         {/* CTA Button */}
                         <div className="pt-4 md:pt-6">
-                            <button className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-linear-to-r from-blue-500 via-cyan-500 to-sky-400 hover:from-blue-600 hover:via-cyan-600 hover:to-sky-500 text-white font-bold text-base sm:text-lg rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 cursor-pointer transform hover:scale-105 active:scale-95">
-                                <span>Get Started</span>
-                                <svg
-                                    className="w-5 h-5 sm:w-6 sm:h-6"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2.5}
-                                        d="M13 7l5 5m0 0l-5 5m5-5H6"
-                                    />
-                                </svg>
-                            </button>
+                            <GetStartedCTA />
                         </div>
                     </div>
                 </div>

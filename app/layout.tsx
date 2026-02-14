@@ -2,6 +2,9 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import { AuthModalProvider } from '@/hooks/useAuthModal';
+import { AuthProvider } from '@/hooks/useAuth';
+import { ToastContainer } from '@/components/ui/ToastContainer';
 
 export const metadata: Metadata = {
     title: 'Social Shipping - Save Money Shipping, Make Money Traveling',
@@ -36,11 +39,16 @@ export default function RootLayout({
                 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
             </head>
             <body className="min-h-screen flex flex-col bg-white text-slate-800 font-sans">
-                <Header />
-                <main className="flex-grow">
-                    {children}
-                </main>
-                <Footer />
+                <AuthProvider>
+                    <AuthModalProvider>
+                        <Header />
+                        <main className="flex-grow">
+                            {children}
+                        </main>
+                        <Footer />
+                        <ToastContainer />
+                    </AuthModalProvider>
+                </AuthProvider>
             </body>
         </html>
     );

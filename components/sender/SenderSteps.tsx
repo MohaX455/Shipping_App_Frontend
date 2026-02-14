@@ -1,64 +1,83 @@
 'use client';
 
-interface Step {
+import Image from 'next/image';
+import { IMAGE_BASE } from '@/lib/constants';
+
+interface StepData {
     number: number;
     title: string;
     description: string;
+    image?: string;
+    imagePosition?: 'left' | 'right';
 }
 
-const steps: Step[] = [
+const stepsData: StepData[] = [
     {
         number: 1,
         title: 'Post Your Parcel',
-        description: 'Fill in the parcel details, size, weight, and destination. Upload a photo and set your price.'
+        description: 'Create a listing with details about your parcel - size, weight, destination, and preferred delivery date. Set your budget for the delivery fee.',
+        image: '/Images/sender-img01.webp',
+        imagePosition: 'right',
     },
     {
         number: 2,
-        title: 'Find a Traveler',
-        description: 'Browse available travelers heading your way. Check their profiles and ratings to find the perfect match.'
+        title: 'Browse & Connect',
+        description: 'Browse available travelers going to your destination. Review their profiles, ratings, and verified information. Message them directly to discuss terms.',
+        image: '/Images/sender-img02.webp',
+        imagePosition: 'left',
     },
     {
         number: 3,
-        title: 'Agree & Pay',
-        description: 'Negotiate the delivery fee directly with the traveler. Secure payment is held until delivery confirmation.'
+        title: 'Agree & Secure',
+        description: 'Negotiate and agree on a final delivery fee. Payment is securely held by Social Shipping until the traveler confirms delivery at the destination.',
+        image: '/Images/sender-img03.webp',
+        imagePosition: 'right',
     },
     {
         number: 4,
-        title: 'Track & Receive',
-        description: 'Track your parcel in real-time. Get confirmation when it arrives safely at your destination.'
-    }
+        title: 'Get Delivered',
+        description: 'Hand off your parcel to the traveler at the scheduled time. Track your shipment in real-time. Once delivered, the traveler receives payment.',
+        image: '/Images/sender-img04.webp',
+        imagePosition: 'left',
+    },
 ];
 
 export function SenderSteps() {
     return (
-        <section className="py-16 md:py-20 bg-white">
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-12">
-                    <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-3 font-heading">
-                        Four Simple Steps
-                    </h2>
-                    <p className="text-slate-600 text-lg">Get started sending parcels in minutes</p>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-                    {steps.map((step) => (
-                        <div key={step.number} className="flex gap-6">
-                            {/* Step Number Circle */}
-                            <div className="flex-shrink-0">
-                                <div className="flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-br from-blue-600 to-purple-600 text-white font-bold text-xl font-heading shadow-lg">
-                                    {step.number}
+        <section className="w-full py-16 sm:py-20 bg-white">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="space-y-16 sm:space-y-20">
+                    {stepsData.map((step, index) => (
+                        <div key={step.number} className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                            {/* Content */}
+                            <div className={`space-y-4 ${step.imagePosition === 'left' ? 'lg:order-2' : ''}`}>
+                                {/* Step Number & Title */}
+                                <div className="flex items-start gap-4">
+                                    <div className="flex-shrink-0 w-14 h-14 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 flex items-center justify-center text-white font-bold text-xl font-heading shadow-lg">
+                                        {step.number}
+                                    </div>
+                                    <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 pt-1 font-heading">
+                                        {step.title}
+                                    </h3>
                                 </div>
-                            </div>
-                            
-                            {/* Step Content */}
-                            <div className="flex-1">
-                                <h3 className="text-xl font-bold text-blue-900 mb-2 font-heading">
-                                    {step.title}
-                                </h3>
-                                <p className="text-slate-600 leading-relaxed font-body">
+
+                                {/* Description */}
+                                <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-body ml-0 sm:ml-4 lg:ml-0">
                                     {step.description}
                                 </p>
                             </div>
+
+                            {/* Image */}
+                            {step.image && (
+                                <div className={`relative w-full h-64 sm:h-80 rounded-xl overflow-hidden shadow-lg ${step.imagePosition === 'left' ? 'lg:order-1' : ''}`}>
+                                    <Image
+                                        src={step.image}
+                                        alt={step.title}
+                                        fill
+                                        className="object-cover"
+                                    />
+                                </div>
+                            )}
                         </div>
                     ))}
                 </div>

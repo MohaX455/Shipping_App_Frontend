@@ -1,11 +1,13 @@
-import { TravelerIntro } from '@/components/traveler/TravelerIntro';
-import { TravelerSteps } from '@/components/traveler/TravelerSteps';
-import { TravelerBenefits } from '@/components/traveler/TravelerBenefits';
-import { TravelerCTA } from '@/components/traveler/TravelerCTA';
+import { TravelerIntro, TravelerSteps, TravelerBenefits, TravelerCTA } from '@/components/traveler';
+
+export const metadata = {
+    title: 'For Travelers - Social Shipping',
+    description: 'Earn money while you travel with Social Shipping. Flexible, secure, and rewarding.',
+};
 
 export default function TravelerPage() {
     return (
-        <main className="min-h-screen bg-white">
+        <main className="w-full">
             <TravelerIntro />
             <TravelerSteps />
             <TravelerBenefits />

@@ -1,11 +1,13 @@
-import { SenderIntro } from '@/components/sender/SenderIntro';
-import { SenderSteps } from '@/components/sender/SenderSteps';
-import { SenderBenefits } from '@/components/sender/SenderBenefits';
-import { SenderCTA } from '@/components/sender/SenderCTA';
+import { SenderIntro, SenderSteps, SenderBenefits, SenderCTA } from '@/components/sender';
+
+export const metadata = {
+    title: 'For Senders - Social Shipping',
+    description: 'Send parcels affordably with Social Shipping. Save up to 50% on shipping costs.',
+};
 
 export default function SenderPage() {
     return (
-        <main className="min-h-screen bg-white">
+        <main className="w-full">
             <SenderIntro />
             <SenderSteps />
             <SenderBenefits />

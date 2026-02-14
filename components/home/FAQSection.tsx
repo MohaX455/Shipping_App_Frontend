@@ -13,44 +13,44 @@ const faqData: FAQItem[] = [
     {
         id: 'sender-1',
         type: 'sender',
-        question: 'How does Social Shipping work?',
+        question: 'How do I send a parcel with Social Shipping?',
         answer:
-            'Social Shipping is a platform that connects senders with travelers going the same route. You post your parcel details, browse available travelers, and negotiate directly with them. Once you reach an agreement, the transaction is between you and the traveler.',
+            'Post your shipping request with details of your parcel. Browse available travelers going your route and negotiate a delivery fee directly with them through our platform.',
     },
     {
         id: 'sender-2',
         type: 'sender',
-        question: 'What happens after I connect with a traveler?',
+        question: 'Is my parcel insured?',
         answer:
-            'After you and the traveler agree on terms and payment information is secured, Social Shipping\'s role as an intermediary is complete. The delivery arrangements, insurance, and any issues that arise during delivery are between you and the traveler. We are not involved in what happens after the initial connection.',
+            'Yes, all parcels are verified and travelers are required to have insurance. Social Shipping holds payment until successful delivery confirmation.',
     },
     {
         id: 'sender-3',
         type: 'sender',
-        question: 'Can I save money using Social Shipping?',
+        question: 'What are the cost savings?',
         answer:
-            'Yes, by connecting directly with travelers instead of using traditional shipping services, you can often negotiate better rates. The potential savings depend on the route and traveler availability.',
+            'Depending on the route and traveler availability, you can save up to 50% compared to traditional shipping services.',
     },
     {
         id: 'traveler-1',
         type: 'traveler',
-        question: 'How can I earn money as a traveler?',
+        question: 'How do I earn money as a traveler?',
         answer:
-            'List your upcoming trips on Social Shipping and let senders contact you with delivery requests. Negotiate the fee directly with interested senders. Once you both agree, the rest is between you and the sender. Social Shipping only facilitates the connection.',
+            'List your upcoming trips on our platform. Senders will contact you with parcel delivery requests. You negotiate the fee and earn money once delivery is confirmed.',
     },
     {
         id: 'traveler-2',
         type: 'traveler',
-        question: 'What is Social Shipping\'s responsibility?',
+        question: 'Do I need special training or licenses?',
         answer:
-            'Social Shipping is an intermediary platform that connects travelers with senders. We facilitate the initial connection and help you communicate. After you and the sender agree on terms, Social Shipping\'s involvement ends. Any issues, disputes, or arrangements regarding delivery are between you and the sender.',
+            'No special training is required. We verify all travelers and provide guidelines. You just need to be reliable and trustworthy.',
     },
     {
         id: 'traveler-3',
         type: 'traveler',
-        question: 'What if the parcel gets lost or damaged during delivery?',
+        question: 'What if a parcel gets lost or damaged?',
         answer:
-            'Once you accept a delivery and agree with the sender on terms, any issues with the parcel are between you and the sender. Social Shipping is only a platform for making the connection. You and the sender should agree on responsibilities and insurance arrangements before delivery.',
+            'All parcels are insured. If there\'s an issue, contact our support team and we\'ll handle the claim. Payment is held until delivery confirmation.',
     },
 ];
 
@@ -68,8 +68,8 @@ export function FAQSection() {
                     <button
                         onClick={() => setActiveTab('sender')}
                         className={`px-6 py-3 font-semibold transition-colors font-heading ${activeTab === 'sender'
-                                ? 'text-blue-600 border-b-2 border-blue-600'
-                                : 'text-slate-600 hover:text-slate-900'
+                            ? 'text-blue-600 border-b-2 border-blue-600'
+                            : 'text-slate-600 hover:text-slate-900'
                             }`}
                     >
                         For Senders
@@ -77,8 +77,8 @@ export function FAQSection() {
                     <button
                         onClick={() => setActiveTab('traveler')}
                         className={`px-6 py-3 font-semibold transition-colors font-heading ${activeTab === 'traveler'
-                                ? 'text-blue-600 border-b-2 border-blue-600'
-                                : 'text-slate-600 hover:text-slate-900'
+                            ? 'text-blue-600 border-b-2 border-blue-600'
+                            : 'text-slate-600 hover:text-slate-900'
                             }`}
                     >
                         For Travelers
@@ -87,8 +87,8 @@ export function FAQSection() {
 
                 {/* Title */}
                 <div className="text-center mb-12">
-                    <h2 className="text-3xl sm:text-4xl font-bold text-blue-900 mb-4 font-heading">
-                        Frequently Asked Questions
+                    <h2 className="text-3xl sm:text-4xl text-transparent bg-clip-text bg-linear-to-r from-yellow-400 via-amber-400 to-orange-400 block mb-4">
+                            Frequently Asked Questions
                     </h2>
                     <p className="text-lg text-slate-600 font-body">
                         {activeTab === 'sender'
