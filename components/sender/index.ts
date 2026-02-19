@@ -1,5 +1,3 @@
-export { SenderIntro } from './SenderIntro';
+export { SenderBanner } from './SenderBanner';
 export { SenderSteps } from './SenderSteps';
 export { SenderBenefits } from './SenderBenefits';
-export { UpcomingTravelersForSender } from './UpcomingTravelersForSender';
-export { SenderCTA } from './SenderCTA';

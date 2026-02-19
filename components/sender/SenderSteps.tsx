@@ -1,85 +1,165 @@
 'use client';
 
 import Image from 'next/image';
-import { IMAGE_BASE } from '@/lib/constants';
+import Link from 'next/link';
 
-interface StepData {
-    number: number;
-    title: string;
-    description: string;
-    image?: string;
-    imagePosition?: 'left' | 'right';
+interface SenderPageData {
+    first_title?: string;
+    first_descriptions?: string;
+    first_image?: string;
+    second_title?: string;
+    second_descriptions?: string;
+    second_image?: string;
+    third_title?: string;
+    third_descriptions?: string;
+    third_image?: string;
+    fourth_title?: string;
+    fourth_descriptions?: string;
+    fourth_image?: string;
 }
 
-const stepsData: StepData[] = [
-    {
-        number: 1,
-        title: 'Post Your Parcel',
-        description: 'Create a listing with details about your parcel - size, weight, destination, and preferred delivery date. Set your budget for the delivery fee.',
-        image: '/Images/sender-img01.webp',
-        imagePosition: 'right',
-    },
-    {
-        number: 2,
-        title: 'Browse & Connect',
-        description: 'Browse available travelers going to your destination. Review their profiles, ratings, and verified information. Message them directly to discuss terms.',
-        image: '/Images/sender-img02.webp',
-        imagePosition: 'left',
-    },
-    {
-        number: 3,
-        title: 'Agree & Connect',
-        description: 'Negotiate and agree on a final delivery fee with the traveler through our platform. Social Shipping facilitates the connection and secure messaging between both parties.',
-        image: '/Images/sender-img03.webp',
-        imagePosition: 'right',
-    },
-    {
-        number: 4,
-        title: 'Hand Off & Coordinate',
-        description: 'Meet the traveler at the scheduled time and hand off your parcel. Track communication through the app. Once the traveler confirms pickup, you\'re all set.',
-        image: '/Images/sender-img04.webp',
-        imagePosition: 'left',
-    },
-];
+interface SenderStepsProps {
+    senderData?: SenderPageData;
+}
 
-export function SenderSteps() {
+export function SenderSteps({ senderData }: SenderStepsProps) {
     return (
-        <section className="w-full py-16 sm:py-20 bg-white">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="space-y-16 sm:space-y-20">
-                    {stepsData.map((step, index) => (
-                        <div key={step.number} className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-                            {/* Content */}
-                            <div className={`space-y-4 ${step.imagePosition === 'left' ? 'lg:order-2' : ''}`}>
-                                {/* Step Number & Title */}
-                                <div className="flex items-start gap-4">
-                                    <div className="flex-shrink-0 w-14 h-14 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 flex items-center justify-center text-white font-bold text-xl font-heading shadow-lg">
-                                        {step.number}
-                                    </div>
-                                    <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 pt-1 font-heading">
-                                        {step.title}
-                                    </h3>
-                                </div>
+        <section className="w-full bg-slate-50 py-12">
+            <div className="max-w-330 mx-auto px-4 sm:px-6 lg:px-8">
+                
+                {/* Breadcrumb */}
+                <nav className="flex items-center gap-2 text-md mb-8 font-body">
+                    <Link href="/" className="text-slate-600 hover:text-[#4053a1]">
+                        Welcome
+                    </Link>
+                    <span className="text-slate-400">{" / "}</span>
+                    <span className="text-[#4053a1] font-medium">For Senders</span>
+                </nav>
 
-                                {/* Description */}
-                                <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-body ml-0 sm:ml-4 lg:ml-0">
-                                    {step.description}
-                                </p>
+                {/* Title */}
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-center mb-4 font-heading">
+                    I am a <span className="text-[#4053a1]">SENDER</span>
+                </h2>
+                <p className="text-center text-slate-700 text-base sm:text-lg mb-12 font-body">
+                    Simply follow these four easy steps
+                </p>
+
+                <div className="space-y-16">
+
+                    {/* STEP 1 */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-y-8 items-stretch">
+                        <div className="bg-white p-6 lg:p-8 flex flex-col justify-center min-h-[280px] h-full">
+                            <div className="flex items-start gap-4 mb-4">
+                                <div className="w-10 h-10 bg-[#4053a1] text-white flex items-center justify-center font-bold font-heading">
+                                    1
+                                </div>
+                                <h4 className="text-xl sm:text-2xl font-semibold text-[#4053a1] font-heading uppercase">
+                                    {senderData?.first_title || 'upload your order'}
+                                </h4>
                             </div>
-
-                            {/* Image */}
-                            {step.image && (
-                                <div className={`relative w-full h-64 sm:h-80 rounded-xl overflow-hidden shadow-lg ${step.imagePosition === 'left' ? 'lg:order-1' : ''}`}>
-                                    <Image
-                                        src={step.image}
-                                        alt={step.title}
-                                        fill
-                                        className="object-cover"
-                                    />
-                                </div>
-                            )}
+                            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                                {senderData?.first_descriptions || 'Add your order details including a link for the traveler to send the item through and the suggested for the traveler.'}
+                            </p>
                         </div>
-                    ))}
+
+                        <div className="relative w-full min-h-[280px] h-full bg-slate-200">
+                            <Image
+                                src={senderData?.first_image || '/Images/sender-img01.webp'}
+                                alt="Step 1"
+                                fill
+                                className="object-cover"
+                            />
+                        </div>
+                    </div>
+
+                    {/* STEP 2 */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-y-8 items-stretch">
+                        <div className="relative w-full min-h-[280px] h-full bg-slate-200 md:order-1">
+                            <Image
+                                src={senderData?.second_image || '/Images/sender-img02.webp'}
+                                alt="Step 2"
+                                fill
+                                className="object-cover"
+                            />
+                        </div>
+
+                        <div className="bg-white p-6 lg:p-8 flex flex-col justify-center min-h-[280px] h-full md:order-2">
+                            <div className="flex items-start gap-4 mb-4">
+                                <div className="w-10 h-10 bg-[#4053a1] text-white flex items-center justify-center font-bold font-heading">
+                                    2
+                                </div>
+                                <h4 className="text-xl sm:text-2xl font-semibold text-[#4053a1] font-heading uppercase">
+                                    {senderData?.second_title || 'wait for a delivery offer'}
+                                </h4>
+                            </div>
+                            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                                {senderData?.second_descriptions || 'Travelers will make delivery offers and you can choose the one that suits you best. You can use the chat feature in the website to discuss and agree with the traveler on all the details including the item description and delivery time and location.'}
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* STEP 3 */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-y-8 items-stretch">
+                        <div className="bg-white p-6 lg:p-8 flex flex-col justify-center min-h-[280px] h-full">
+                            <div className="flex items-start gap-4 mb-4">
+                                <div className="w-10 h-10 bg-[#4053a1] text-white flex items-center justify-center font-bold font-heading">
+                                    3
+                                </div>
+                                <h4 className="text-xl sm:text-2xl font-semibold text-[#4053a1] font-heading uppercase">
+                                    {senderData?.third_title || 'accept offer and pay'}
+                                </h4>
+                            </div>
+                            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                                {senderData?.third_descriptions || 'Users pay for delivery services without Social Shipping involvement. Choose the payment method when you create a parcel: upon receipt or upon departure.'}
+                            </p>
+                        </div>
+
+                        <div className="relative w-full min-h-[280px] h-full bg-slate-200">
+                            <Image
+                                src={senderData?.third_image || '/Images/sender-img03.webp'}
+                                alt="Step 3"
+                                fill
+                                className="object-cover"
+                            />
+                        </div>
+                    </div>
+
+                    {/* STEP 4 */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-y-8 items-stretch">
+                        <div className="relative w-full min-h-[280px] h-full bg-slate-200 md:order-1">
+                            <Image
+                                src={senderData?.fourth_image || '/Images/sender-img04.webp'}
+                                alt="Step 4"
+                                fill
+                                className="object-cover"
+                            />
+                        </div>
+
+                        <div className="bg-white p-6 lg:p-8 flex flex-col justify-center min-h-[280px] h-full md:order-2">
+                            <div className="flex items-start gap-4 mb-4">
+                                <div className="w-10 h-10 bg-[#4053a1] text-white flex items-center justify-center font-bold font-heading">
+                                    4
+                                </div>
+                                <h4 className="text-xl sm:text-2xl font-semibold text-[#4053a1] font-heading uppercase">
+                                    {senderData?.fourth_title || 'Deliver your shipping item'}
+                                </h4>
+                            </div>
+                            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                                {senderData?.fourth_descriptions || 'Successful delivery of your package when you, or the recipient, provides a delivery confirmation to the traveler.'}
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                {/* CTA */}
+                <div className="flex items-center justify-center mt-12 font-heading">
+                    <Link
+                        href="/dashboard"
+                        className="inline-block bg-[#00fcff] text-[#252b50] font-semibold text-lg px-8 py-3 rounded-md hover:bg-[#00e5e5] transition-colors"
+                    >
+                        Send You Parcel
+                    </Link>
                 </div>
             </div>
         </section>

@@ -1,4 +1,3 @@
-export { TravelerIntro } from './TravelerIntro';
+export { TravelerBanner } from './TravelerBanner';
 export { TravelerSteps } from './TravelerSteps';
 export { TravelerBenefits } from './TravelerBenefits';
-export { TravelerCTA } from './TravelerCTA';
