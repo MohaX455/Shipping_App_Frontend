@@ -31,14 +31,11 @@ export function ValuePropositionSection() {
 
     return (
         <section className="py-20 bg-white">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-330 mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-purple-600 mb-4 font-heading">
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-950 mb-4 font-heading relative after:content-[''] after:block after:mx-auto after:mt-6 after:w-32 after:h-1.5 after:bg-cyan-400 after:rounded-full after:opacity-90">
                         Why Choose Social Shipping?
                     </h2>
-                    <p className="text-lg text-slate-600 max-w-2xl mx-auto font-body">
-                        A better way to ship and travel
-                    </p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

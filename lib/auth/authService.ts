@@ -80,13 +80,19 @@ class AuthService {
 
             const normalizedUser: AuthUser = {
                 id: user.id || user._id,
-                name: user.name || user.username,
+                name: user.name || user.username || user.first_name,
                 email: user.email,
                 role: user.role,
             };
 
             this.setToken(token);
             this.setUser(normalizedUser);
+            // Persist full auth state if backend returns a larger structure
+            try {
+                if (typeof window !== 'undefined') {
+                    localStorage.setItem('authState', JSON.stringify(data));
+                }
+            } catch {}
 
             return { token, user: normalizedUser };
         } catch (error) {

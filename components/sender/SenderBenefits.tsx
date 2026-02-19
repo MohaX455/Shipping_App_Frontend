@@ -43,8 +43,8 @@ const benefitsData: BenefitCard[] = [
     },
     {
         id: 4,
-        title: 'Live Updates',
-        description: 'Follow progress with clear and timely updates during the delivery journey.',
+        title: 'Direct Communication',
+        description: 'Message travelers directly through our secure platform to negotiate terms and coordinate pickups.',
         icon: (
             <svg viewBox="0 0 24 24" className="w-7 h-7 sm:w-8 sm:h-8 text-blue-600" fill="none" stroke="currentColor" strokeWidth={1.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3 12h3l3 8 4-16 3 8h4" />
@@ -53,8 +53,8 @@ const benefitsData: BenefitCard[] = [
     },
     {
         id: 5,
-        title: 'Simple Payments',
-        description: 'Securely handle transactions with clear confirmation steps and payment options.',
+        title: 'Easy Connections',
+        description: 'Connect directly with travelers and negotiate terms that work for both. Social Shipping facilitates the entire process.',
         icon: (
             <svg viewBox="0 0 24 24" className="w-7 h-7 sm:w-8 sm:h-8 text-blue-600" fill="none" stroke="currentColor" strokeWidth={1.5}>
                 <rect x="2" y="7" width="20" height="12" rx="2" />

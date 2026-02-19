@@ -20,10 +20,9 @@ export function Modal({ open, onClose, title, children, size = 'md' }: ModalProp
     useEffect(() => {
         if (open) {
             setIsRendered(true);
-            // Ensure we start from non-animating state then trigger animation on next frame
-            setIsAnimating(false);
-            const raf = requestAnimationFrame(() => setIsAnimating(true));
-            return () => cancelAnimationFrame(raf);
+            // Give browser time to paint the DOM before triggering animation
+            const t = setTimeout(() => setIsAnimating(true), 10);
+            return () => clearTimeout(t);
         } else {
             // play closing animation then unmount
             setIsAnimating(false);
@@ -48,10 +47,10 @@ export function Modal({ open, onClose, title, children, size = 'md' }: ModalProp
     const maxWidth = size === 'sm' ? 'max-w-md' : size === 'lg' ? 'max-w-3xl' : 'max-w-xl';
 
     return createPortal(
-        <div className={`fixed inset-0 z-50 flex items-center justify-center transition-opacity duration-300 ${isAnimating ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-            <div className={`absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-300 ${isAnimating ? 'opacity-100' : 'opacity-0'}`} onClick={onClose} />
-            <div className={`relative z-10 w-full ${maxWidth} mx-4 sm:mx-6 transition-all duration-300 transform ${isAnimating ? 'scale-100 opacity-100' : 'scale-95 opacity-0'}`}>
-                <div className="bg-white rounded-lg shadow-xl overflow-hidden" style={{ fontFamily: 'Montserrat, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial' }}>
+        <div className={`fixed inset-0 z-50 flex items-center justify-center transition-opacity duration-300 ease-out ${isAnimating ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+            <div className={`absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-300 ease-out ${isAnimating ? 'opacity-100' : 'opacity-0'}`} onClick={onClose} />
+            <div className={`relative z-10 w-full ${maxWidth} mx-4 sm:mx-6 transition-all duration-300 ease-out transform ${isAnimating ? 'scale-100 opacity-100 translate-y-0' : 'scale-95 opacity-0 translate-y-4'}`}>
+                <div className="bg-white rounded-sm shadow-2xl overflow-hidden" style={{ fontFamily: 'Montserrat, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial' }}>
                     <div className="flex items-center justify-between p-5 border-b border-slate-100">
                         <div className="text-xl font-semibold text-slate-900">{title}</div>
                         <button onClick={onClose} className="p-2 rounded-md text-slate-600 hover:bg-slate-100 transition cursor-pointer">

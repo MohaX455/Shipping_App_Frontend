@@ -1,4 +1,4 @@
-import { SenderIntro, SenderSteps, SenderBenefits, SenderCTA } from '@/components/sender';
+import { SenderIntro, SenderSteps, SenderBenefits, SenderCTA, UpcomingTravelersForSender } from '@/components/sender';
 
 export const metadata = {
     title: 'For Senders - Social Shipping',
@@ -11,6 +11,7 @@ export default function SenderPage() {
             <SenderIntro />
             <SenderSteps />
             <SenderBenefits />
+            <UpcomingTravelersForSender />
             <SenderCTA />
         </main>
     );

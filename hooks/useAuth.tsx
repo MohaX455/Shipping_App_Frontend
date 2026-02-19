@@ -58,7 +58,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             if (typeof window !== 'undefined') {
                 try {
                     window.dispatchEvent(new CustomEvent('app:logged_in'));
-                } catch {}
+                } catch { }
             }
         } catch (err) {
             const authError = err as AuthError;

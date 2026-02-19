@@ -70,7 +70,7 @@ export default function ForgotPasswordModal({ open, onClose, openLogin }: Props)
                     </div>
                 )}
 
-                <div>
+                <div className="relative">
                     <label className="block text-sm font-medium text-slate-700 mb-2">E-Mail ID</label>
                     <input
                         name="email"
@@ -78,7 +78,7 @@ export default function ForgotPasswordModal({ open, onClose, openLogin }: Props)
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         disabled={isDisabled}
-                        className="w-full px-4 py-3 rounded-md bg-slate-50 border border-slate-400 focus:ring-2 focus:ring-sky-300 transition text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="w-full px-4 py-3 rounded-md bg-slate-50 border border-slate-400 placeholder:opacity-60 focus:outline-none focus:ring-2 focus:ring-sky-400 transition text-sm disabled:opacity-50 disabled:cursor-not-allowed"
                         placeholder="you@email.com"
                     />
                 </div>
@@ -103,7 +103,7 @@ export default function ForgotPasswordModal({ open, onClose, openLogin }: Props)
                 <button
                     type="submit"
                     disabled={isDisabled}
-                    className="w-full px-5 py-3.5 rounded-md bg-gradient-to-r from-sky-600 to-sky-500 text-white text-base font-semibold shadow hover:shadow-lg transition disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                    className="w-full px-5 py-3.5 rounded-md bg-gradient-to-r from-sky-600 to-sky-500 text-white text-base font-semibold shadow hover:shadow-lg transition disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2 cursor-pointer"
                 >
                     {isLoading ? (
                         <>

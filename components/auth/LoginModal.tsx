@@ -113,7 +113,7 @@ export default function LoginModal({ open, onClose, openSignup, openForgot }: Pr
                 <button
                     type="submit"
                     disabled={isDisabled}
-                    className="w-full px-5 py-3.5 rounded-md bg-gradient-to-r from-sky-600 to-sky-500 text-white text-base font-semibold shadow hover:shadow-lg transition disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                    className="w-full px-5 py-3.5 rounded-md bg-gradient-to-r from-sky-600 to-sky-500 text-white text-base font-semibold shadow hover:shadow-lg transition disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2 cursor-pointer"
                 >
                     {isLoading ? (
                         <>

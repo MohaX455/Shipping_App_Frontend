@@ -35,8 +35,8 @@ const stepsData: StepData[] = [
     },
     {
         number: 4,
-        title: 'Deliver & Earn',
-        description: 'Pick up the parcel at the scheduled time. Travel with it and deliver at the destination. Confirm delivery and receive your payment instantly.',
+        title: 'Pickup & Deliver',
+        description: 'Pick up the parcel at the agreed time and location. Transport it carefully to the destination. Coordinate with the sender for final handoff and confirm on the app.',
         image: '/Images/traveler-img04.webp',
         imagePosition: 'left',
     },

@@ -14,7 +14,7 @@ export function Footer() {
                 priority
                 className="object-cover object-center"
             />
-            <div className="z-25 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="z-100 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Footer Main Content */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 py-16">
                     {/* Brand Section */}
@@ -86,7 +86,7 @@ export function Footer() {
                             </li>
                             <li>
                                 <Link
-                                    href="/contact"
+                                    href="/contact-us"
                                     className="text-slate-400 hover:text-white transition-colors text-sm"
                                 >
                                     Contact Us
